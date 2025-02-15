@@ -22,7 +22,6 @@ variable "owners" {
   default     = "GabrielBello"
 }
 
-// Variáveis Específicas da VPC
 variable "name" {
   description = "Base name for the VPC"
   type        = string
@@ -75,4 +74,14 @@ variable "single_nat_gateway" {
   description = "Use a single NAT Gateway for all private subnets"
   type        = bool
   default     = true
+}
+
+## S3
+
+variable "bucket_configs" {
+  description = "Buckets configuration map"
+  type = map(object({
+    bucket_name = string
+    tags        = map(string)
+  }))
 }
