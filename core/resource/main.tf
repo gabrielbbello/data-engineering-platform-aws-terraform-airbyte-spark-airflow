@@ -16,3 +16,10 @@ module "vpc" {
   enable_nat_gateway                 = var.enable_nat_gateway
   single_nat_gateway                 = var.single_nat_gateway
 }
+
+module "s3" {
+  source = "./modules/s3"
+
+  environment    = var.environment
+  bucket_configs = var.bucket_configs
+}
